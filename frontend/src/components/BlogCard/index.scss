@@ -1,0 +1,11 @@
+.blog-card{
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  &__title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}

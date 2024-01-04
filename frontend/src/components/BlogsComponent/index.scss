@@ -1,0 +1,14 @@
+.blogs {
+  padding: 60px 0;
+  &__header {
+    margin-bottom: 60px;
+    text-align: center;
+    font-size: 24px;
+  }
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+  }
+}
+

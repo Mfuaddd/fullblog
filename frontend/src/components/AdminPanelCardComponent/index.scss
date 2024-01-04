@@ -1,0 +1,33 @@
+.panel-card{
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  &__btn{
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  &__text{
+    margin-left: 10px;
+    text-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  &__blog{
+    max-width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__control{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

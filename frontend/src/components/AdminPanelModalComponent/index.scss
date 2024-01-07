@@ -1,0 +1,45 @@
+.panel-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__context {
+    position: relative;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    max-width: 1170px;
+    width: 100%;
+    margin: 10% 15px 15px 15px;
+  }
+
+  &__title,
+  &__text {
+    border-radius: 2px;
+    padding: 5px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    outline: none;
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  &__close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+}

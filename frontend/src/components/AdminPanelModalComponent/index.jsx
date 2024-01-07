@@ -1,28 +1,54 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import "./index.scss";
+import { fetchContext } from "../../contexts/FetchContext";
 
-function AdminPanelModalComponent() {
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
+function AdminPanelModalComponent({ setIsOpen, cb, id, data }) {
+  const { getBlogsData } = useContext(fetchContext);
+  const [title, setTitle] = useState(data ? data.title : "");
+  const [text, setText] = useState(data ? data.text : "");
 
-  c
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleSubmit = async () => {
+    if (id) {
+      await cb(id, { title, text });
+    } else {
+      await cb({ title, text });
+    }
+    await getBlogsData();
+    handleClose();
+  };
+
   return (
     <div className="panel-modal">
-      <form action="">
-        <label for="panel-title">Title</label>
-        <input
-          type="text"
-          name="panel-title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <label for="panel-text">Text</label>
-        <textarea
-          name="panel-text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-        <input type="submit" value="Save" />
-      </form>
+      <div className="panel-modal__context">
+        <div htmlFor="panel-modal__label">Title</div>
+        <div
+          className="panel-modal__title"
+          onInput={(e) => setTitle(e.currentTarget.innerText)}
+          contentEditable="true"
+          suppressContentEditableWarning={true}
+        >
+          {data && data.title}
+        </div>
+        <div className="panel-modal__label">Text</div>
+        <div
+          className="panel-modal__text"
+          onInput={(e) => setText(e.currentTarget.innerText)}
+          contentEditable="true"
+          suppressContentEditableWarning={true}
+        >
+          {data && data.text}
+        </div>
+        <div className="panel-modal__submit btn" onClick={handleSubmit}>
+          Submit
+        </div>
+        <div className="panel-modal__close" onClick={handleClose}>
+          &#x2716;
+        </div>
+      </div>
     </div>
   );
 }

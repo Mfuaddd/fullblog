@@ -12,10 +12,6 @@ function FetchContext({ children }) {
     setBlogsData(data);
   };
 
-  const deleteBlogByID = async (id) => {
-    await fetch(`http://localhost:3100/blogs/${id}`, { method: "DELETE" });
-  };
-
   const getUsersData = async () => {
     const res = await fetch("http://localhost:3100/users");
     const data = await res.json();
@@ -26,7 +22,6 @@ function FetchContext({ children }) {
     blogsData,
     userData,
     getBlogsData,
-    deleteBlogByID,
     getUsersData,
   };
 

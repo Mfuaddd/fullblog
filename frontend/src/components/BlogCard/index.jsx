@@ -5,7 +5,7 @@ function BlogCard({ blog }) {
   return (
     <div className="blog-card">
       <div className="blog-card__title">{blog.title}</div>
-      <div className="blogs-card__text">{blog.text}</div>
+      <div className="blog-card__text">{blog.text}</div>
     </div>
   );
 }
